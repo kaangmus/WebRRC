@@ -1,18 +1,31 @@
-import React, {Component} from 'react';
+import React from 'reactn';
 import img from './../../../uploads/images/img_1.jpg';
 import {FirestoreCollection} from "react-firestore";
-import Post from "./ui/Post";
+import Post from "./Post";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
 
 
 
-class Blog extends Component {
+class Blog extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
             limit: 2,
         }
+        this.retrieveRecord = this.retrieveRecord.bind(this)
+    }
+
+    retrieveRecord(rec) {
+        this.props.onSwitchSource(rec);
+
+        this.setGlobal({
+            toPlay: rec
+        }, () => {
+            //console.log(this.global.toPlay)
+            }
+        )
+
     }
 
     render() {
@@ -55,7 +68,9 @@ class Blog extends Component {
                                             <Post key={post.id}
                                                   title={post.Title}
                                                   date={post.Date.toDate()}
-                                                  img={img}
+                                                  img={post.Image}
+                                                  record={post.Record}
+                                                  getRec={this.retrieveRecord}
                                             />
                                         ))
                                     );

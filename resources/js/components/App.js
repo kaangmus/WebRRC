@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component, setGlobal } from 'reactn';
 import ReactDOM from "react-dom";
 import Home from "../pages/Home";
 import { FirestoreProvider } from 'react-firestore';
@@ -49,6 +49,10 @@ const config = {
 };
 
 firebase.initializeApp(config);
+
+setGlobal({
+    toPlay: ""
+});
 
 if (document.getElementById('index')) {
     ReactDOM.render(

@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'reactn';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
-class Player extends Component {
+class Player extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,10 +12,9 @@ class Player extends Component {
         this.switchToPlay = this.switchToPlay.bind(this);
     }
 
-
     switchToPlay() {
         this.setState({
-            toPlay: "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_5MG.mp3",
+            toPlay: this.props.switchSrc,
             live: false
         })
     }
