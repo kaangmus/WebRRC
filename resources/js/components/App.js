@@ -6,7 +6,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import cred from '../../../fire';
 import {BrowserRouter, Route} from 'react-router-dom'
-import Admin from "./Admin";
+import Admin from "../pages/Admin";
 import Index from "./index";
 import Navbar from "./ui/navbar";
 import Footer from "./ui/footer";

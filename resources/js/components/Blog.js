@@ -71,6 +71,7 @@ class Blog extends React.PureComponent {
                                                   img={post.Image}
                                                   record={post.Record}
                                                   getRec={this.retrieveRecord}
+                                                  description={post.Description}
                                             />
                                         ))
                                     );

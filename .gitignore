@@ -12,3 +12,6 @@ npm-debug.log
 yarn-error.log
 fire.json
 .idea/*
+.DS_Store
+resources/js/.idea/*
+public/uploads/*
