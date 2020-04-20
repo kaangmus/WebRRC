@@ -4,6 +4,9 @@ import Blog from "./Blog";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import firebase from "firebase";
+var Blur = require('react-blur').default;
+
+
 
 class Overlay extends React.PureComponent {
     constructor(props) {
@@ -16,6 +19,8 @@ class Overlay extends React.PureComponent {
         this.loadNotLive = this.loadNotLive.bind(this);
         this.switchSrc = this.switchSrc.bind(this)
     }
+
+
 
     loadNotLive() {
 
@@ -42,40 +47,46 @@ class Overlay extends React.PureComponent {
     render() {
         return (
             <div>
-                <div className="site-blocks-cover overlay" style={{backgroundImage: `url(${this.state.image})`}}
-                     data-aos="fade" data-stellar-background-ratio="0.5">
-                    <div className="container">
-                        <div className="row align-items-center justify-content-center">
-                            <div className="col-md-7 text-center" data-aos="fade-up" data-aos-delay="400">
-                                <h1>Listen &mdash; On-Air Now</h1>
-                                <p className="mb-4"><span className="small">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                                </p>
 
-                                <AudioPlayer
-                                    autoPlay={false}
-                                    loop={true}
-                                    src={this.state.src}
-                                    showSkipControls={false}
-                                    showJumpControls={false}
-                                    onPlay={() => console.log("onPlay")}
-                                    onError={() => this.loadNotLive()}
-                                    onEnded={() => {if (!this.state.live) {
-                                        this.loadNotLive()
-                                    }}}
+                <Blur img={Logo} blurRadius={10} enableStyles>
+                    <div className="site-blocks-cover overlay" data-aos="fade" data-stellar-background-ratio="0.5">
+                        <div className="container">
+                            <div className="row align-items-center justify-content-center">
+                                <div className="col-md-7 text-center" data-aos="fade-up" data-aos-delay="400">
+                                    <h1>Listen &mdash; On-Air Now</h1>
+                                    <p className="mb-4"><span className="small">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                                    </p>
 
-                                    // other props here
-                                />
+                                    <AudioPlayer
+                                        autoPlay={false}
+                                        loop={true}
+                                        src={this.state.src}
+                                        showSkipControls={false}
+                                        showJumpControls={false}
+                                        showDownloadProgress={false}
+                                        showFilledProgress={false }
+                                        onPlay={() => console.log("onPlay")}
+                                        onError={() => this.loadNotLive()}
+                                        onEnded={() => {if (!this.state.live) {
+                                            this.loadNotLive()
+                                        }}}
 
+                                        // other props here
+                                    />
+
+
+                                </div>
+                                <div className="col-md-4 text-center" data-aos="fade-up" data-aos-delay="400">
+
+
+
+                                </div>
 
                             </div>
-                            <div className="col-md-4 text-center" data-aos="fade-up" data-aos-delay="400">
-
-
-                            </div>
-
                         </div>
                     </div>
-                </div>
+                </Blur>
+
 
                 <Blog
                     onSwitchSource={this.switchSrc}
