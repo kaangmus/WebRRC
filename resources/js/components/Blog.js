@@ -1,5 +1,4 @@
 import React from 'reactn';
-import img from './../../../uploads/images/img_1.jpg';
 import {FirestoreCollection} from "react-firestore";
 import Post from "./Post";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -16,16 +15,8 @@ class Blog extends React.PureComponent {
         this.retrieveRecord = this.retrieveRecord.bind(this)
     }
 
-    retrieveRecord(rec) {
-        this.props.onSwitchSource(rec);
-
-        this.setGlobal({
-            toPlay: rec
-        }, () => {
-            //console.log(this.global.toPlay)
-            }
-        )
-
+    retrieveRecord(post) {
+        this.props.onSwitchSource(post);
     }
 
     render() {

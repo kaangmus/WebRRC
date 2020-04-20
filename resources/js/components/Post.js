@@ -22,7 +22,7 @@ class Post extends Component {
                     <div className="row justify-content-center">
                         <div className="col-md-12 text">
                             <span className="d-block mb-2 text-white-opacity-05">
-                                <a href="javascript:void(0)" className="text-white"><MdPlayCircleOutline size="4.5em" onClick={() => {this.props.getRec(this.props.record)}}/></a>
+                                <a href="javascript:void(0)" className="text-white"><MdPlayCircleOutline size="4.5em" onClick={() => {this.props.getRec({rec: this.props.record, img: this.props.img})}}/></a>
                             </span>
                             <p style={{wordBreak: 'break-all' }}>{this.props.description}</p>
                         </div>

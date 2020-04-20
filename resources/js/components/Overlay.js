@@ -1,37 +1,48 @@
 import React from 'reactn';
-import Player from "./Player";
 import Logo from './../../../uploads/images/coverwrrc.jpeg';
 import Blog from "./Blog";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import firebase from "firebase";
 
 class Overlay extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
             src: "http://radioregionecampania.it:8000/home?type=.mp3",
-            live: true
+            live: true,
+            image: Logo
         }
-        this.switchToPlay = this.switchToPlay.bind(this);
+        this.loadNotLive = this.loadNotLive.bind(this);
         this.switchSrc = this.switchSrc.bind(this)
     }
 
-    switchToPlay() {
-        this.setState({
-            src: this.props.switchSrc,
-            live: false
+    loadNotLive() {
+
+        firebase.firestore().collection('live').doc('fRyNSFBYXLcVFnU58f1A').get().then(res => {
+            firebase.firestore().collection('blog').doc(res.data()['LiveRec']).get().then(playable => {
+                console.log(playable.data())
+                this.setState({
+                    src: playable.data()['Record'],
+                    live: false,
+                    image: playable.data()['Image']
+                }, () => {
+                    console.log(this.state.image)})
+            })
         })
+
+
     }
 
-    switchSrc(src) {
-        this.setState({src}, () => {
-            console.log('switch src to' + this.state.src)})
+    switchSrc(post) {
+        this.setState({src: post.rec, image: post.img}, () => {
+            console.log('switch src to' + this.state.src )})
     }
 
     render() {
         return (
             <div>
-                <div className="site-blocks-cover overlay" style={{backgroundImage: `url(${Logo})`}}
+                <div className="site-blocks-cover overlay" style={{backgroundImage: `url(${this.state.image})`}}
                      data-aos="fade" data-stellar-background-ratio="0.5">
                     <div className="container">
                         <div className="row align-items-center justify-content-center">
@@ -47,9 +58,9 @@ class Overlay extends React.PureComponent {
                                     showSkipControls={false}
                                     showJumpControls={false}
                                     onPlay={() => console.log("onPlay")}
-                                    onError={() => this.switchToPlay()}
+                                    onError={() => this.loadNotLive()}
                                     onEnded={() => {if (!this.state.live) {
-                                        this.switchToPlay()
+                                        this.loadNotLive()
                                     }}}
 
                                     // other props here
