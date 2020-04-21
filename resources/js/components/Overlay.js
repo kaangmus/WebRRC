@@ -12,7 +12,7 @@ class Overlay extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            src: "http://127.0.0.1:8000/example",
+            src: "http://0.0.0.0:8000/example?type=.mp3",
             live: true,
             image: Logo,
             title: "On-Air Now"
@@ -58,7 +58,7 @@ class Overlay extends React.PureComponent {
                                 <div className="col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
                                     <h1>Listen &mdash; {this.state.title} {this.state.live && <RiVoiceprintLine />} {!this.state.live && <RiMusic2Line />}</h1>
                                     <p className="mb-4"><span className="small">Tanta musica per tutti i gusti , ma anche tanta buona informazione per stare al passo con i tempi .
-                                        Ascoltare cose belle insegna a pensare ed.</span>
+                                        Ascoltare cose belle insegna a pensare edddd.</span>
                                     </p>
 
                                     <AudioPlayer
