@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/insertPhoto', 'FileUpload@pictureUpload');
 Route::post('/insertRecord', 'FileUpload@recordUpload');
 Route::post('/insertPost', 'FileUpload@uploadPost');
+Route::get('/shellPwd', 'FileUpload@shell_Test');
