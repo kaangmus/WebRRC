@@ -9,7 +9,8 @@ class ManagePost extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            limit: 3
+            limit: 3,
+            res: 'iii'
         };
         this.removePost = this.removePost.bind(this);
         this.setLivePost = this.setLivePost.bind(this);
@@ -28,6 +29,9 @@ class ManagePost extends Component {
     setLivePost(src) {
         axios.get('/api/shellPwd/' + src).then(response => {
             console.log(response.data)
+            this.setState({
+            res: response.data
+})
         }).catch(err => {
             console.log(err.response.data);
         })
@@ -38,6 +42,7 @@ class ManagePost extends Component {
             <div>
 
                 <div className="site-section bg-light">
+<h1>{this.state.res}</h1>
                     <div className="container">
 
 
