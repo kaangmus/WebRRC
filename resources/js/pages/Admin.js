@@ -4,6 +4,7 @@ import firebase from "firebase";
 
 import img from '../../../uploads/images/img_1.jpg';
 import axios from "axios";
+import ManagePost from "./../components/Admin/ManagePost";
 let data = new FormData();
 
 
@@ -223,6 +224,9 @@ class Admin extends Component {
                         </div>
                     </div>
                 </div>
+
+                <ManagePost/>
+
             </div>
         );
     }

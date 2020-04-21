@@ -21,18 +21,10 @@ class FileUpload extends Controller
         return $filesName;
     }
 
-    public static function shell_Test()
+    public static function shell_Test($recName)
     {
-
-        $process = new Process(['ls', '-lsa']);
-        $process->run();
-
-        // executes after the command finishes
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-
-        echo $process->getOutput();
+        $str = '/var/www/html/WebRRC/public/uploads/records/' . $recName;
+        file_put_contents('playlist.txt', $str);
 
     }
 }
