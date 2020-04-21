@@ -1,4 +1,5 @@
 /* Base */
+/* Base */
 body {
   line-height: 1.7;
   color: #4d4d4d;
@@ -225,7 +226,7 @@ a {
     padding-bottom: 15px; }
     .site-footer .footer-heading:before {
       content: "";
-      background: #7cbd1e;
+      background: #258FA5;
       width: 40px;
       height: 2px;
       position: absolute;
@@ -1515,9 +1516,9 @@ a {
 
 .padded-multi-line-primary, .unit-9 h2 {
   display: inline;
-  background: #7cbd1e;
-  -webkit-box-shadow: 10px 0 0 #7cbd1e, 0px 0 0 #7cbd1e;
-  box-shadow: 10px 0 0 #7cbd1e, 0px 0 0 #7cbd1e; }
+  background: #258FA5;
+  -webkit-box-shadow: 10px 0 0 #258FA5, 0px 0 0 #258FA5;
+  box-shadow: 10px 0 0 #258FA5, 0px 0 0 #258FA5; }
 
 .padded-multi-line-black, .unit-9 span {
   display: inline;
@@ -1606,7 +1607,7 @@ a {
     left: 0;
     bottom: 0;
     height: 2px;
-    background: #7cbd1e; }
+    background: #258FA5; }
 
 .site-section-heading.w-border.text-center h2:after {
   left: 50%;
@@ -1659,7 +1660,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(124, 189, 30, 0.8);
+    background: rgba(37, 143, 165, 0.8);
     z-index: 2;
     height: 100%;
     width: 100%;
@@ -1705,7 +1706,7 @@ a {
 
 .social-icon:hover {
   color: #eec60a !important;
-  background: #6ea71b; }
+  background: #3b5998; }
 
 .podcast-entry {
   -webkit-box-shadow: 0 5px 40px -10px rgba(0, 0, 0, 0.1);

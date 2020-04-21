@@ -8,10 +8,11 @@ class Footer extends Component {
                     <div className="row">
                         <div className="col-lg-4">
                             <div className="mb-5">
-                                <h3 className="footer-heading mb-4">About Radios</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur
-                                    reprehenderit vero atque, consequatur id ratione, et non dignissimos culpa? Ut
-                                    veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
+                                <h3 className="footer-heading mb-4">La Radio</h3>
+                                <p>Tanta musica per tutti i gusti , ma anche tanta buona informazione per stare al passo con i tempi.
+                                    Ascoltare cose belle insegna a pensare ed agire.
+
+                                </p>
                             </div>
 
 
@@ -23,10 +24,8 @@ class Footer extends Component {
                                     <h3 className="footer-heading mb-4">Follow Us</h3>
 
                                     <div>
-                                        <a href="#" className="pl-0 pr-3"><span className="icon-facebook"></span></a>
-                                        <a href="#" className="pl-3 pr-3"><span className="icon-twitter"></span></a>
-                                        <a href="#" className="pl-3 pr-3"><span className="icon-instagram"></span></a>
-                                        <a href="#" className="pl-3 pr-3"><span className="icon-linkedin"></span></a>
+                                        <a href="https://www.facebook.com/Web-Radio-Regione-Campania-103449527993974/"
+                                           className="pl-0 pr-3"><span className="icon-facebook"></span></a>
                                     </div>
                                 </div>
                             </div>
