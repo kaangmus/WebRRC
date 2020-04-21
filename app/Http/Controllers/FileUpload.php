@@ -25,14 +25,7 @@ class FileUpload extends Controller
     {
         $str = '/var/www/html/WebRRC/public/uploads/records/' . $recName .PHP_EOL;
         file_put_contents('playlist.txt', $str);
-        $process = new Process(['/usr/local/bin/ices', '-c', '/etc/ices/ices.conf', '-v']);
-        $process->run();
-
-        // executes after the command finishes
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-        echo $process->getOutput();
+        return "updated";
 
     }
 }
