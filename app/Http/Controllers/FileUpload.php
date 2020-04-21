@@ -15,7 +15,7 @@ class FileUpload extends Controller
         $request["record"]->move(public_path('uploads/records/'), $recordName);
         $request["image"]->move(public_path('uploads/images/'), $imageName);
         $filesName = [
-            "recordFile" => 'uploads/records/' . $recordName,
+            "recordFile" => $recordName,
             "imageFile" => 'uploads/images/' . $imageName
         ];
         return $filesName;
@@ -23,6 +23,7 @@ class FileUpload extends Controller
 
     public static function shell_Test($recName)
     {
+        echo $recName;
         $str = '/var/www/html/WebRRC/public/uploads/records/' . $recName;
         file_put_contents('playlist.txt', $str);
 

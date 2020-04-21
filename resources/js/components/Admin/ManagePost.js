@@ -29,7 +29,7 @@ class ManagePost extends Component {
         axios.get('/api/shellPwd/' + src).then(() => {
             console.log('pdated')
         }).catch(err => {
-            console.log(err);
+            console.log(err.response.data);
         })
     }
 

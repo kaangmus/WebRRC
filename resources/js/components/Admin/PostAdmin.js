@@ -32,7 +32,7 @@ class PostAdmin extends Component {
                                    className="text-white">Rimuovi <FaRegTimesCircle size="1.5em" /></a>
                             <hr/>
                                 <a href="javascript:void(0)" style={{fontSize: '150%'}}
-                                   onClick={() => {this.props.setLive(this.props.id)} }
+                                   onClick={() => {this.props.setLive(this.props.record)} }
                                    className="text-white">Imposta Live <MdSurroundSound size="1.5em"/></a>
                             </span>
                         </div>
