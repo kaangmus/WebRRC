@@ -12,7 +12,7 @@ class Overlay extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            src: "http://127.0.0.1:8000/example,
+            src: "http://127.0.0.1:8000/example",
             live: true,
             image: Logo,
             title: "On-Air Now"
