@@ -46,6 +46,7 @@ class Overlay extends React.PureComponent {
             console.log('switch src to' + this.state.src )})
     }
 
+
     render() {
         return (
             <div>
