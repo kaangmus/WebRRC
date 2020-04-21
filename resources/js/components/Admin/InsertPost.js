@@ -83,7 +83,7 @@ export default class InsertPost extends Component {
             headers: {
                 'accept': 'application/json',
                 'Accept-Language': 'en-US,en;q=0.8',
-                'Content-Type': `multipart/form-data; boundary=${data._boundary}; audio/mp3`,
+                'Content-Type': `multipart/form-data; boundary=${data._boundary}; audio/ogg`,
             }
 
         }).then(response => {
