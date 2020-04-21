@@ -26,8 +26,8 @@ class ManagePost extends Component {
 
 
     setLivePost(src) {
-        axios.get('/api/shellPwd/' + src).then(() => {
-            console.log('pdated')
+        axios.get('/api/shellPwd/' + src).then(response => {
+            console.log(response.data)
         }).catch(err => {
             console.log(err.response.data);
         })
