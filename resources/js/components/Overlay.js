@@ -42,7 +42,7 @@ class Overlay extends React.PureComponent {
     }
 
     switchSrc(post) {
-        this.setState({src: post.rec, image: post.img}, () => {
+        this.setState({src: 'uploads/records/' + post.rec, image: post.img}, () => {
             console.log('switch src to' + this.state.src )})
     }
 
