@@ -25,6 +25,13 @@ class FileUpload extends Controller
     {
         $str = '/var/www/html/WebRRC/public/uploads/records/' . $recName .PHP_EOL;
         file_put_contents('playlist.m3u', $str);
+        $process = new Process(['systemctl', 'restart', 'ezSystem.service']);
+        $process->run();
+
+        // executes after the command finishes
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
         return "updated";
 
     }
