@@ -28,7 +28,7 @@ return [
 
     'connections' => [
         'production' => [
-            'host'      => 'localhost',
+            'host'      => '85.217.170.217',
             'username'  => 'root',
             'password'  => 'HC4lWNXkY1cqowx',
             'key'       => '',
