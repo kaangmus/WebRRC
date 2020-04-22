@@ -26,12 +26,19 @@ class ManagePost extends Component {
     }
 
 
-    setLivePost(src) {
+    setLivePost(src, id) {
         axios.get('/api/shellPwd/' + src).then(response => {
-            console.log(response.data)
             this.setState({
             res: response.data
-})
+            }, () => {
+                firebase.firestore().collection('live').doc('fRyNSFBYXLcVFnU58f1A').set({
+                    LiveRec: id
+                }).then(res => {
+                    console.log(res)
+                }).catch(err => {
+                    console.log(err)
+                })
+            })
         }).catch(err => {
             console.log(err.response.data);
         })

@@ -15,3 +15,6 @@ fire.json
 .DS_Store
 resources/js/.idea/*
 public/uploads/*
+/app/Http/Controllers/Auth/
+/resources/views/layouts/app.blade.php
+/database/migrations/2014_10_12_100000_create_password_resets_table.php

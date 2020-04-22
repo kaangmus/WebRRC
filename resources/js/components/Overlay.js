@@ -30,7 +30,7 @@ class Overlay extends React.PureComponent {
                 console.log(playable.data())
                 this.setState({
                     title: playable.data()['Title'],
-                    src: playable.data()['Record'],
+                    src: "http://radioregionecampania.it:8000/tester",
                     live: false,
                     image: playable.data()['Image']
                 }, () => {
