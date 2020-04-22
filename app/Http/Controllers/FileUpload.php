@@ -25,12 +25,10 @@ class FileUpload extends Controller
     {
         $str = '/var/www/html/WebRRC/public/uploads/records/' . $recName .PHP_EOL;
         file_put_contents('playlist.m3u', $str);
-
         SSH::run([
-            'cd /var/www',
-            'mkdir peloO'
+            'systemctl restart ezSystem.service'
         ]);
         return "updated";
-
     }
+
 }

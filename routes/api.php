@@ -22,3 +22,4 @@ Route::post('/insertPhoto', 'FileUpload@pictureUpload');
 Route::post('/insertRecord', 'FileUpload@recordUpload');
 Route::post('/insertPost', 'FileUpload@uploadPost');
 Route::get('/shellPwd/{recName}', 'FileUpload@shell_Test');
+Route::get('/reStream' ,'FileUpload@updateEz');
