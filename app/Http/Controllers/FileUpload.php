@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
-
+use SSH;
 class FileUpload extends Controller
 {
 
@@ -25,13 +25,11 @@ class FileUpload extends Controller
     {
         $str = '/var/www/html/WebRRC/public/uploads/records/' . $recName .PHP_EOL;
         file_put_contents('playlist.m3u', $str);
-        $process = new Process(['systemctl', 'restart', 'ezSystem.service']);
-        $process->run();
 
-        // executes after the command finishes
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
+        SSH::run([
+            'cd /var/www',
+            'mkdir peloO'
+        ]);
         return "updated";
 
     }
