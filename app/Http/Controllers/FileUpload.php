@@ -24,7 +24,7 @@ class FileUpload extends Controller
     public static function shell_Test($recName)
     {
         $str = '/var/www/html/WebRRC/public/uploads/records/' . $recName .PHP_EOL;
-        file_put_contents('playlist.txt', $str);
+        file_put_contents('playlist.m3u', $str);
         return "updated";
 
     }
