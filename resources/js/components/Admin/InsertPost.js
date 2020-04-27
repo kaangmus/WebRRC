@@ -3,13 +3,14 @@ import DatePicker from 'react-date-picker';
 import firebase from "firebase";
 import axios from "axios";
 let data = new FormData();
-
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 export default class InsertPost extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '...',
+            title: '',
             description: '',
             img: '',
             date: null,
@@ -19,7 +20,8 @@ export default class InsertPost extends Component {
             file: '',
             imagePreviewUrl: '',
             recordFile: '',
-            recordUrl: ''
+            recordUrl: '',
+            loader: false
         }
 
         this.changeDate = this.changeDate.bind(this);
@@ -74,6 +76,7 @@ export default class InsertPost extends Component {
     }
 
     handleSubmit(event) {
+        this.setState({loader: true});
         event.preventDefault();
 
         data.append('image', this.state.file, this.state.file.fileName);
@@ -115,9 +118,28 @@ export default class InsertPost extends Component {
 
     render() {
         return (
+
             <div>
-                <div className="site-blocks-cover inner-page-cover overlay" data-aos="fade"
-                    data-stellar-background-ratio="0.5" data-aos="fade">
+                <div className="site-section bg-light">
+                    <div className="row justify-content-center">
+                        <div className="container">
+                            <div className="col-md-12 text-center">
+                                <Loader
+                                    type="Audio"
+                                    color="black"
+                                    height={100}
+                                    width={100}
+                                    visible={this.state.loader}
+                                />
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                {this.state.loader === false && <div> <div className="site-blocks-cover inner-page-cover overlay" data-aos="fade"
+                                                           data-stellar-background-ratio="0.5" data-aos="fade">
                     <div className="container">
                         <div className="row align-items-center justify-content-center">
                             <div className="col-md-7 text-center" data-aos="fade-up" data-aos-delay="400">
@@ -128,99 +150,108 @@ export default class InsertPost extends Component {
                         </div>
                     </div>
                 </div>
+                    <div className="site-section bg-light">
+                        <div className="container">
+                            <div className="row justify-content-center">
 
-                <div className="site-section bg-light">
-                    <div className="container">
-                        <div className="row justify-content-center">
+                                <div className="col-md-8 col-lg-8 mb-5">
 
-                            <div className="col-md-6 col-lg-6 mb-5">
+                                    <form action="#" className="p-5 bg-white" onSubmit={this.handleSubmit}>
 
-                                <form action="#" className="p-5 bg-white" onSubmit={this.handleSubmit}>
-
-                                    <div className="row form-group">
-                                        <div className="col-md-12 mb-3 mb-md-0">
-                                            <label className="font-weight-bold" htmlFor="fullname">Titolo</label>
-                                            <input type="text"
-                                                id="fullname"
-                                                onChange={this.handleChange}
-                                                name="title"
-                                                value={this.state.title}
-                                                className="form-control"
-                                                placeholder="Full Name" />
+                                        <div className="row form-group">
+                                            <div className="col-md-12 mb-3 mb-md-0">
+                                                <label className="font-weight-bold" htmlFor="fullname">Titolo</label>
+                                                <input type="text"
+                                                       id="fullname"
+                                                       onChange={this.handleChange}
+                                                       name="title"
+                                                       required={true}
+                                                       value={this.state.title}
+                                                       className="form-control"
+                                                       placeholder="Aggiungi un titolo" />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="row form-group">
-                                        <div className="col-md-12">
-                                            <label className="font-weight-bold" htmlFor="email">Data</label>
-                                            <br />
-                                            <DatePicker
-                                                onChange={this.changeDate}
-                                                value={this.state.date}
-                                                format="d-MM-y"
-                                            />
+                                        <div className="row form-group">
+                                            <div className="col-md-12">
+                                                <label className="font-weight-bold" htmlFor="email">Data</label>
+                                                <br />
+                                                <DatePicker
+                                                    onChange={this.changeDate}
+                                                    value={this.state.date}
+                                                    format="d-MM-y"
+                                                    required={true}
+                                                />
+                                            </div>
                                         </div>
-                                    </div>
 
 
-                                    <div className="row form-group">
-                                        <div className="col-md-12">
-                                            <label className="font-weight-bold" htmlFor="email">Visibile</label>
-                                            <input type="checkbox"
-                                                id="subject"
-                                                onChange={this.changeVisibility}
-                                                name="visible"
-                                                checked={this.state.visible}
-                                                className="form-control"
-                                            />
+                                        <div className="row form-group">
+                                            <div className="col-md-12">
+                                                <label className="font-weight-bold">Visibile</label>
+                                                <input type="checkbox"
+                                                       onChange={this.changeVisibility}
+                                                       name="visible"
+                                                       checked={this.state.visible}
+                                                       className="form-control"
+                                                       style={{fontSize: '50%'}}
+                                                />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="row form-group">
-                                        <div className="col-md-12">
-                                            <label className="font-weight-bold" >Immagine</label>
-                                            <input className="fileInput"
-                                                type="file"
-                                                name="image"
-                                                onChange={(e) => this._handleImageChange(e)} />
+                                        <div className="row form-group">
+                                            <div className="col-md-12">
+                                                <label className="font-weight-bold" >Immagine</label>
+                                                <br/>
+                                                <input className="fileInput"
+                                                       type="file"
+                                                       name="image"
+                                                       required={true}
+                                                       onChange={(e) => this._handleImageChange(e)} />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="row form-group">
-                                        <div className="col-md-12">
-                                            <label className="font-weight-bold">Registrazione</label>
-                                            <input className="fileInput"
-                                                type="file"
-                                                name="record"
-                                                onChange={(e) => this._handleRecordChange(e)} />
+                                        <div className="row form-group">
+                                            <div className="col-md-12">
+                                                <label className="font-weight-bold">Registrazione</label>
+                                                <br/>
+                                                <input className="fileInput"
+                                                       type="file"
+                                                       name="record"
+                                                       required={true}
+                                                       onChange={(e) => this._handleRecordChange(e)} />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="row form-group">
-                                        <div className="col-md-12">
-                                            <label className="font-weight-bold">Descrizione</label>
-                                            <textarea
-                                                onChange={this.handleChange}
-                                                name="description"
-                                                value={this.state.description}
-                                                className="form-control"
-                                                placeholder="Aggiungi una descrizione.." />
+                                        <div className="row form-group">
+                                            <div className="col-md-12">
+                                                <label className="font-weight-bold">Descrizione</label>
+                                                <textarea
+                                                    onChange={this.handleChange}
+                                                    name="description"
+                                                    value={this.state.description}
+                                                    className="form-control"
+                                                    required={true}
+                                                    placeholder="Aggiungi una descrizione.." />
 
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="row form-group">
-                                        <div className="col-md-4">
-                                            <input type="submit" value="Aggiungi"
-                                                className="btn btn-primary  py-2 px-4 rounded-0" />
+                                        <div className="row form-group">
+                                            <div className="col-md-4">
+                                                <input type="submit" value="Aggiungi"
+                                                       className="btn btn-primary  py-2 px-4 rounded-0" />
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
+
                             </div>
-
                         </div>
                     </div>
-                </div>
+                </div>}
+
+
             </div>
         );
     }

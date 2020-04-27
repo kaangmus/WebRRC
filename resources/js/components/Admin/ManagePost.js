@@ -56,7 +56,7 @@ class ManagePost extends Component {
         return (
             <div>
                 <div className="site-section bg-light">
-                    <div className="container">
+                    <div className="container text-center">
                         <Loader
                             type="Audio"
                             color="black"
