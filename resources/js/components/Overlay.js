@@ -42,7 +42,7 @@ class Overlay extends React.PureComponent {
     }
 
     switchSrc(post) {
-        this.setState({src: 'uploads/records/' + post.rec, image: post.img}, () => {
+        this.setState({src: 'uploads/records/' + post.rec, image: post.img, title: post.title}, () => {
             console.log('switch src to' + this.state.src )})
     }
 
@@ -78,7 +78,9 @@ class Overlay extends React.PureComponent {
 
 
                                 </div>
+                                <div className="col-md-6">
 
+                                </div>
                             </div>
                         </div>
                     </div>

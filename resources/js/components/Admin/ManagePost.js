@@ -4,13 +4,15 @@ import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import PostAdmin from "./PostAdmin";
 import firebase from "firebase";
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 class ManagePost extends Component {
     constructor(props) {
         super(props);
         this.state = {
             limit: 3,
-            res: 'iii'
+            loader: false
         };
         this.removePost = this.removePost.bind(this);
         this.setLivePost = this.setLivePost.bind(this);
@@ -27,33 +29,42 @@ class ManagePost extends Component {
 
 
     setLivePost(src, id) {
-        axios.get('/api/shellPwd/' + src).then(response => {
-            this.setState({
-            res: response.data
-            }, () => {
-                firebase.firestore().collection('live').doc('fRyNSFBYXLcVFnU58f1A').set({
-                    LiveRec: id
-                }).then(res => {
-                    console.log(res)
-                }).catch(err => {
-                    console.log(err)
+        this.setState({loader: true}, () => {
+            axios.get('/api/shellPwd/' + src).then(response => {
+                this.setState({
+                    res: response.data
+                }, () => {
+                    firebase.firestore().collection('live').doc('fRyNSFBYXLcVFnU58f1A').set({
+                        LiveRec: id
+                    }).then(res => {
+                        console.log(res)
+                    }).catch(err => {
+                        console.log(err)
+                    })
                 })
+            }).catch(err => {
+                console.log(err.response.data);
             })
-        }).catch(err => {
-            console.log(err.response.data);
         })
+        this.setState({loader: false}, () => NotificationManager.success('AutoDj aggiornato'))
+
+
+
     }
 
     render() {
         return (
             <div>
-
                 <div className="site-section bg-light">
-<h1>{this.state.res}</h1>
                     <div className="container">
-
-
-                        <div className="row no-gutters">
+                        <Loader
+                            type="Audio"
+                            color="black"
+                            height={100}
+                            width={100}
+                            visible={this.state.loader}
+                        />
+                        {this.state.loader === false && <div className="row no-gutters">
                             <FirestoreCollection
                                 path="blog"
                                 sort="Date:desc"
@@ -87,11 +98,14 @@ class ManagePost extends Component {
                                     );
                                 }}
                             />
-                        </div>
+                        </div>}
+
 
                     </div>
 
                 </div>
+                <NotificationContainer/>
+
             </div>
 
         );
