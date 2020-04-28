@@ -55,7 +55,7 @@ class Overlay extends React.PureComponent {
                     <div className="site-blocks-cover overlay" data-aos="fade" data-stellar-background-ratio="0.5">
                         <div className="container">
                             <div className="row align-items-center justify-content-center">
-                                <div className="col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
+                                <div className="col-md-6 col-xs-12 text-center" data-aos="fade-up" data-aos-delay="400">
                                     <h1>Listen &mdash; {this.state.title} {this.state.live && <RiVoiceprintLine />} {!this.state.live && <RiMusic2Line />}</h1>
                                     <p className="mb-4"><span className="small">Tanta musica per tutti i gusti , ma anche tanta buona informazione per stare al passo con i tempi .
                                         Ascoltare cose belle insegna a pensare ed agire.</span>

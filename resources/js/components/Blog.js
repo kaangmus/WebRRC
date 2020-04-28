@@ -30,7 +30,7 @@ class Blog extends React.PureComponent {
                         <div className="row">
                             <div className="site-section-heading text-center mb-5 w-border col-md-6 mx-auto"
                                  data-aos="fade-up">
-                                <h2 className="mb-5">Weekly Radio Program</h2>
+                                <h2 className="mb-5">Programmi radio tutti i giorni</h2>
                             </div>
                         </div>
 

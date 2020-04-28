@@ -6,6 +6,9 @@ let data = new FormData();
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import { ProgressBar } from 'react-bootstrap'
+import Manage from './../../../../public/images/39970722-radio-wallpapers.jpg';
+import Logo from "../../../../uploads/images/coverwrrc.jpeg";
+var Blur = require('react-blur').default;
 
 export default class InsertPost extends Component {
     constructor(props) {
@@ -127,24 +130,32 @@ export default class InsertPost extends Component {
 
 
                 {!this.state.loader ? (<div>
-                    <div className="site-blocks-cover inner-page-cover overlay" data-aos="fade"
-                                                           data-stellar-background-ratio="0.5" data-aos="fade">
-                    <div className="container">
-                        <div className="row align-items-center justify-content-center">
-                            <div className="col-md-7 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <Blur img={Manage} blurRadius={10} enableStyles>
+                        <div className="site-blocks-cover inner-page-cover overlay" data-aos="fade"
+                             data-stellar-background-ratio="0.5" data-aos="fade">
+                            <div className="container">
+                                <div className="row align-items-center justify-content-center">
+                                    <div className="col-md-7 text-center" data-aos="fade-up" data-aos-delay="400">
 
-                                <h2 className="text-white h1">Aggiungi una registrazione</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <h2 className="text-white h1">Amministratore</h2>
+                                        <p>Gestisci i contenuti ed il live</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                </div>
-                    <div className="site-section bg-light">
+                        </div>
+                    </Blur>
+
+                    <div className="site-section bg-dark">
+                        <div className="site-section-heading text-center mb-5 w-border col-md-6 mx-auto"
+                             data-aos="fade-up">
+                            <h2 className="mb-5 text-white">Inserisci registrazione</h2>
+                        </div>
+
                         <div className="container">
                             <div className="row justify-content-center">
 
-                                <div className="col-md-8 col-lg-8 mb-5">
+                                <div className="col-md-8 col-lg-8 mb-5" style={{}}>
 
                                     <form action="#" className="p-5 bg-white" onSubmit={this.handleSubmit}>
 
@@ -251,7 +262,7 @@ export default class InsertPost extends Component {
                             <div className="col-md-12 text-center">
                                 <Loader
                                     type="Audio"
-                                    color="black"
+                                    color="white"
                                     height={100}
                                     width={100}
                                     visible={this.state.loader}
@@ -260,7 +271,6 @@ export default class InsertPost extends Component {
                             <br/>
                             <h1>Carico la registrazione...</h1>
                             <br/>
-                            44
                             <ProgressBar animated={true} now={this.state.progress} />
 
                         </div>

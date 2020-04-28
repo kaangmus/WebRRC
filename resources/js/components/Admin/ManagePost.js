@@ -55,7 +55,12 @@ class ManagePost extends Component {
     render() {
         return (
             <div>
-                <div className="site-section bg-light">
+
+                <div className="site-section bg-dark">
+                    <div className="site-section-heading text-center mb-5 w-border col-md-6 mx-auto"
+                         data-aos="fade-up">
+                        <h2 className="mb-5 text-white">Rimuovi o modifica live</h2>
+                    </div>
                     <div className="container text-center">
                         <Loader
                             type="Audio"
@@ -73,7 +78,7 @@ class ManagePost extends Component {
                                         <div className="col-md-12 text-center">
                                             <Loader
                                                 type="Audio"
-                                                color="black"
+                                                color="white"
                                                 height={100}
                                                 width={100}
                                                 visible={true}
