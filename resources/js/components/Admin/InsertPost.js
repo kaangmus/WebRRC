@@ -260,6 +260,7 @@ export default class InsertPost extends Component {
                             <br/>
                             <h1>Carico la registrazione...</h1>
                             <br/>
+                            44
                             <ProgressBar animated={true} now={this.state.progress} />
 
                         </div>
