@@ -5,6 +5,7 @@ import axios from "axios";
 let data = new FormData();
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import { ProgressBar } from 'react-bootstrap'
 
 export default class InsertPost extends Component {
     constructor(props) {
@@ -87,6 +88,9 @@ export default class InsertPost extends Component {
                 'accept': 'application/json',
                 'Accept-Language': 'en-US,en;q=0.8',
                 'Content-Type': `multipart/form-data; boundary=${data._boundary}; audio/mp3`,
+            }, onUploadProgress: progressEvent => {
+                this.setState({progress: (progressEvent.loaded * 100) / progressEvent.total}, () => {
+                    console.log(this.state.progress)})
             }
 
         }).then(response => {
@@ -120,25 +124,10 @@ export default class InsertPost extends Component {
         return (
 
             <div>
-                <div className="site-section bg-light">
-                    <div className="row justify-content-center">
-                        <div className="container">
-                            <div className="col-md-12 text-center">
-                                <Loader
-                                    type="Audio"
-                                    color="black"
-                                    height={100}
-                                    width={100}
-                                    visible={this.state.loader}
-                                />
-                            </div>
 
-                        </div>
-                    </div>
 
-                </div>
-
-                {this.state.loader === false && <div> <div className="site-blocks-cover inner-page-cover overlay" data-aos="fade"
+                {!this.state.loader ? (<div>
+                    <div className="site-blocks-cover inner-page-cover overlay" data-aos="fade"
                                                            data-stellar-background-ratio="0.5" data-aos="fade">
                     <div className="container">
                         <div className="row align-items-center justify-content-center">
@@ -149,6 +138,7 @@ export default class InsertPost extends Component {
                             </div>
                         </div>
                     </div>
+
                 </div>
                     <div className="site-section bg-light">
                         <div className="container">
@@ -244,12 +234,42 @@ export default class InsertPost extends Component {
                                             </div>
                                         </div>
                                     </form>
+
+
+
+
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
-                </div>}
+
+                </div>) : (<div className="site-section bg-light">
+                    <div className="row justify-content-center">
+                        <div className="container">
+                            <div className="col-md-12 text-center">
+                                <Loader
+                                    type="Audio"
+                                    color="black"
+                                    height={100}
+                                    width={100}
+                                    visible={this.state.loader}
+                                />
+                            </div>
+                            <br/>
+                            <h1>Carico la registrazione...</h1>
+                            <br/>
+                            <ProgressBar animated={true} now={this.state.progress} />
+
+                        </div>
+                    </div>
+
+                </div>)}
+
+
+
+
 
 
             </div>
