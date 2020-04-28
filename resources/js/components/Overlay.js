@@ -6,6 +6,7 @@ import 'react-h5-audio-player/lib/styles.css';
 import firebase from "firebase";
 var Blur = require('react-blur').default;
 import { RiVoiceprintLine, RiMusic2Line } from "react-icons/ri";
+import BannerCarousel from "./ui/bannerCarousel";
 
 
 class Overlay extends React.PureComponent {
@@ -55,7 +56,7 @@ class Overlay extends React.PureComponent {
                     <div className="site-blocks-cover overlay" data-aos="fade" data-stellar-background-ratio="0.5">
                         <div className="container">
                             <div className="row align-items-center justify-content-center">
-                                <div className="col-md-6 col-xs-12 text-center" data-aos="fade-up" data-aos-delay="400">
+                                <div className="col-md-7 col-xs-12 text-center" data-aos="fade-up" data-aos-delay="400">
                                     <h1>Listen &mdash; {this.state.title} {this.state.live && <RiVoiceprintLine />} {!this.state.live && <RiMusic2Line />}</h1>
                                     <p className="mb-4"><span className="small">Tanta musica per tutti i gusti , ma anche tanta buona informazione per stare al passo con i tempi .
                                         Ascoltare cose belle insegna a pensare ed agire.</span>
@@ -78,13 +79,13 @@ class Overlay extends React.PureComponent {
 
 
                                 </div>
-                                <div className="col-md-6">
-
-                                </div>
                             </div>
                         </div>
                     </div>
                 </Blur>
+
+
+
 
                 <div className="bg-primary" data-aos="fade">
                     <div className="container">
@@ -92,6 +93,19 @@ class Overlay extends React.PureComponent {
                             <h3 className="text-center text-white"></h3>
                             <a href="https://www.facebook.com/Web-Radio-Regione-Campania-103449527993974/" className="col-2 text-center py-4 social-icon d-block text-white"><span
                                 className="icon-facebook text-white"/></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade" style={{marginTop: '5%'}}>
+                    <div className="container site-section-heading">
+                        <h2 className="text-center mb-5">Partnership</h2>
+                        <div className="row justify-content-center">
+
+                            <div className="col-md-7 col-lg-7 ">
+                                <BannerCarousel />
+
+                            </div>
                         </div>
                     </div>
                 </div>

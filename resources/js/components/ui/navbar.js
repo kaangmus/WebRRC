@@ -11,7 +11,7 @@ class Navbar extends Component {
                         <div className="container py-1">
                             <div className="row align-items-center">
                                 <div className="col-8 col-md-8 col-lg-4">
-                                    <h1 className="mb-0"><a href="index.html" className="text-white h2 mb-0"><strong>Web Radio Regione Campania<span
+                                    <h1 className="mb-0"><a href="/" className="text-white h2 mb-0"><strong>Web Radio Regione Campania<span
                                         style={{color: '#258FA5'}}>.</span></strong></a></h1>
                                 </div>
                                 <div className="col-4 col-md-4 col-lg-8">
