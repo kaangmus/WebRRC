@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
-import img1 from './../../../../public/images/banner1.png'
-import img2 from './../../../../public/images/banner2.png'
+import img1 from '../../../images/banner1.png'
+import img2 from '../../../images/banner2.png'
 class BannerCarousel extends Component {
     render() {
         return (

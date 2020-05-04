@@ -6,7 +6,7 @@ let data = new FormData();
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import { ProgressBar } from 'react-bootstrap'
-import Manage from './../../../../public/images/39970722-radio-wallpapers.jpg';
+import Manage from '../../../images/39970722-radio-wallpapers.jpg';
 import Logo from "../../../../uploads/images/coverwrrc.jpeg";
 var Blur = require('react-blur').default;
 

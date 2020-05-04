@@ -12,12 +12,14 @@
         "bootstrap": "^4.4.1",
         "cross-env": "^7.0",
         "firebase": "^7.14.0",
+        "font-awesome": "^4.7.0",
         "form-data": "^3.0.0",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.13",
         "moment": "^2.24.0",
         "moment-timezone": "^0.5.28",
+        "node-sass": "^4.14.0",
         "popper.js": "^1.12",
         "react": "^16.13.1",
         "react-audio-player": "^0.13.0",
@@ -46,7 +48,7 @@
         "reactn": "^2.2.7",
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.15.2",
-        "sass-loader": "^8.0.0"
+        "sass-loader": "^8.0.2"
     },
     "scripts": {
         "dev": "npm run development",

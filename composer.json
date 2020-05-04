@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "laravelcollective/remote": "^6.1",
+        "shetabit/visitor": "^2.1",
         "symfony/process": "^5.0"
     },
     "require-dev": {

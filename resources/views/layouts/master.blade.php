@@ -47,7 +47,8 @@
 
 @yield('content')
 
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v6.0&appId=194721887735996&autoLogAppEvents=1"></script>
 <script src="{{asset('radios/js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('radios/js/jquery-migrate-3.0.1.min.js')}}"></script>
 <script src="{{asset('radios/js/jquery-ui.js')}}"></script>
