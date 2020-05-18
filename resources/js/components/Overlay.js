@@ -9,7 +9,6 @@ import { RiVoiceprintLine, RiMusic2Line } from "react-icons/ri";
 import BannerCarousel from "./ui/bannerCarousel";
 import FbPage from "./fbPage";
 import FbComments from "./fbComments";
-import ActiveUsers from "./active users";
 
 
 class Overlay extends React.PureComponent {
