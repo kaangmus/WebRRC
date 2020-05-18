@@ -53,7 +53,6 @@ class Overlay extends React.PureComponent {
             <div>
 
 
-                <ActiveUsers />
 
                 <Blur img={Logo} blurRadius={10} enableStyles>
                     <div className="site-blocks-cover overlay" data-aos="fade" data-stellar-background-ratio="0.5">
