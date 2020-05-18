@@ -9,6 +9,7 @@
         name="description"
         content="Web site created using create-react-app"
     />
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164676734-1"></script>
     <script>

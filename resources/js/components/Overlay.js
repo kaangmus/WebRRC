@@ -9,6 +9,7 @@ import { RiVoiceprintLine, RiMusic2Line } from "react-icons/ri";
 import BannerCarousel from "./ui/bannerCarousel";
 import FbPage from "./fbPage";
 import FbComments from "./fbComments";
+import ActiveUsers from "./active users";
 
 
 class Overlay extends React.PureComponent {
@@ -30,14 +31,12 @@ class Overlay extends React.PureComponent {
 
         firebase.firestore().collection('live').doc('fRyNSFBYXLcVFnU58f1A').get().then(res => {
             firebase.firestore().collection('blog').doc(res.data()['LiveRec']).get().then(playable => {
-                console.log(playable.data())
                 this.setState({
                     title: playable.data()['Title'],
                     src: "http://radioregionecampania.it:8000/tester",
                     live: false,
                     image: playable.data()['Image']
-                }, () => {
-                    console.log(this.state.image)})
+                })
             })
         })
 
@@ -45,14 +44,16 @@ class Overlay extends React.PureComponent {
     }
 
     switchSrc(post) {
-        this.setState({src: 'uploads/records/' + post.rec, image: post.img, title: post.title}, () => {
-            console.log('switch src to' + this.state.src )})
+        this.setState({src: 'uploads/records/' + post.rec, image: post.img, title: post.title})
     }
 
 
     render() {
         return (
             <div>
+
+
+                <ActiveUsers />
 
                 <Blur img={Logo} blurRadius={10} enableStyles>
                     <div className="site-blocks-cover overlay" data-aos="fade" data-stellar-background-ratio="0.5">
@@ -72,7 +73,6 @@ class Overlay extends React.PureComponent {
                                         showJumpControls={false}
                                         showDownloadProgress={false}
                                         showFilledProgress={false }
-                                        onPlay={() => console.log("onPlay")}
                                         onError={() => this.loadNotLive()}
                                         onEnded={() => {if (!this.state.live) {
                                             this.loadNotLive()

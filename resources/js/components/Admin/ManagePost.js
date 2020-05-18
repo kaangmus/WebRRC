@@ -21,7 +21,6 @@ class ManagePost extends Component {
 
     removePost(id) {
         firebase.firestore().collection('blog').doc(id).delete().then(() => {
-            console.log('deleted');
         }).catch(err => {
             console.log(err)
         })
@@ -37,7 +36,6 @@ class ManagePost extends Component {
                     firebase.firestore().collection('live').doc('fRyNSFBYXLcVFnU58f1A').set({
                         LiveRec: id
                     }).then(res => {
-                        console.log(res)
                     }).catch(err => {
                         console.log(err)
                     })

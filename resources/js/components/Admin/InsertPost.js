@@ -43,8 +43,6 @@ export default class InsertPost extends Component {
         let file = e.target.files[0];
         this.setState({
             file: file,
-        }, function () {
-            console.log('pic ok!')
         })
 
     }
@@ -55,8 +53,6 @@ export default class InsertPost extends Component {
         let record = e.target.files[0];
         this.setState({
             recordFile: record
-        }, function () {
-            console.log('song ok!')
         })
 
     }
@@ -64,7 +60,6 @@ export default class InsertPost extends Component {
 
     createPost(post) {
         firebase.firestore().collection('blog').add(post).then(() => {
-            console.log("inserted");
             window.location.reload();
         }).catch(err => {
             console.log(err)
@@ -92,12 +87,10 @@ export default class InsertPost extends Component {
                 'Accept-Language': 'en-US,en;q=0.8',
                 'Content-Type': `multipart/form-data; boundary=${data._boundary}; audio/mp3`,
             }, onUploadProgress: progressEvent => {
-                this.setState({progress: (progressEvent.loaded * 100) / progressEvent.total}, () => {
-                    console.log(this.state.progress)})
+                this.setState({progress: (progressEvent.loaded * 100) / progressEvent.total})
             }
 
         }).then(response => {
-            console.log(response.data.recordFile)
             let post = {
                 Title: this.state.title,
                 Date: this.state.date,

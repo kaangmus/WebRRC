@@ -26,10 +26,10 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Navbar />
-                   <Route exact path="/" component={IndexPage}/>
-                   <Route exact path="/home" component={IndexPage}/>
-                   <Route exact path="/admin" component={AdminPage}/>
-                   <Footer />
+                    <Route exact path="/" component={IndexPage}/>
+                    <Route exact path="/home" component={IndexPage}/>
+                    <Route exact path="/admin" component={AdminPage}/>
+                    <Footer />
                 </div>
             </BrowserRouter>
 
@@ -50,13 +50,11 @@ const config = {
 
 firebase.initializeApp(config);
 
-setGlobal({
-    toPlay: ""
-});
 
 if (document.getElementById('index')) {
     ReactDOM.render(
         <FirestoreProvider firebase={firebase}>
-            <App />
+
+                <App />
         </FirestoreProvider>, document.getElementById('index'));
 }

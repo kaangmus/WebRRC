@@ -31,6 +31,8 @@
         "react-dom": "^16.13.1",
         "react-firebase-file-uploader": "^2.4.3",
         "react-firestore": "^1.0.1",
+        "react-google-authorize": "^1.0.4",
+        "react-google-oauth": "^1.0.0",
         "react-h5-audio-player": "^3.0.4",
         "react-howler": "^3.7.4",
         "react-icons": "^3.9.0",
