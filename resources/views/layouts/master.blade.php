@@ -5,10 +5,9 @@
     <link rel="icon" href="{{asset('images/logo.jpeg')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-        name="description"
-        content="Web site created using create-react-app"
-    />
+    <meta property="og:title" content="Web Radio Regione Campania">
+    <meta property="og:description" content="Tanta musica per tutti i gusti , ma anche tanta buona informazione per stare al passo con i tempi. Ascoltare cose belle insegna a pensare ed agire.">
+    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/webradioregionecampania.appspot.com/o/logowrrc.jpeg?alt=media&token=e478f3de-341e-476f-b923-f5b9103441ac">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164676734-1"></script>
