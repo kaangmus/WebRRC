@@ -15,7 +15,7 @@ class Overlay extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            src: "http://radioregionecampania.it:8000/tester",
+            src: "http://radioregionecampania.it:8000/example",
             live: true,
             image: Logo,
             title: "On-Air Now"
